@@ -97,22 +97,22 @@ func uploadHandler(c *gin.Context) {
 	}
 
 	if !data.Extra.Network {
-		if data.Signature == "" {
+		/*if data.Signature == "" {
 			c.String(http.StatusBadRequest, "signature is required")
 			return
-		}
+		}*/
 
 		if data.Commandline == "" {
 			c.String(http.StatusBadRequest, "commandline is required for local board")
 			return
 		}
 
-		err := utilities.VerifyInput(data.Commandline, data.Signature)
+		/*err := utilities.VerifyInput(data.Commandline, data.Signature)
 
 		if err != nil {
 			c.String(http.StatusBadRequest, "signature is invalid")
 			return
-		}
+		}*/
 	}
 
 	buffer := bytes.NewBuffer(data.Hex)
